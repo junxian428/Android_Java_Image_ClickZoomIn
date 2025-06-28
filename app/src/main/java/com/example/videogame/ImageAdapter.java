@@ -1,11 +1,12 @@
 package com.example.videogame;
 
 import android.content.Context;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-
+import android.widget.GridView;
 public class ImageAdapter extends BaseAdapter {
     private Context context;
     private int[] imageIds;
@@ -36,8 +37,17 @@ public class ImageAdapter extends BaseAdapter {
 
         if (convertView == null) {
             imageView = new ImageView(context);
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(300, 300));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+            // Get screen height and divide by 3
+            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+            int screenHeight = displayMetrics.heightPixels;
+            int itemHeight = screenHeight / 3;
+
+            imageView.setLayoutParams(new GridView.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, itemHeight
+            ));
+
+            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
         } else {
             imageView = (ImageView) convertView;
         }
