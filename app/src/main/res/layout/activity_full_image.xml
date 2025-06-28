@@ -2,7 +2,16 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#009688"
+        android:text="  Big Data Landscape"
+        android:textColor="#FFFFFF"
+  android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 <ImageView
     android:id="@+id/fullImageView"
     android:layout_width="match_parent"
